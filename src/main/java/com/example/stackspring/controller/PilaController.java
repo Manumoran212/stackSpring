@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+
 @RestController
 @RequestMapping("/pila")
 public class PilaController {
@@ -26,6 +27,14 @@ public class PilaController {
             return "La pila esta vacia";
         }
         return "Se saco: " + pila.pop();
+    }
+
+    @GetMapping("/peek")
+    public String verTope() {
+        if (pila.isEmpty()) {
+            return "La pila esta vacia";
+        }
+        return "Tope: " + pila.peek();
     }
 
     @GetMapping
